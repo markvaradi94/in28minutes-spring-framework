@@ -1,15 +1,12 @@
 package com.in28minutes.learnspringframework.game;
 
 public class GameRunner {
-    SuperContraGame game;
+    GamingConsole game;
 
-    // GameRunner is strongly coupled to the game it receives in its constructor
-    // If it wants to run Mario, it needs the concrete MarioGame class to be able to run it, or SuperContra if that is what we want
-    // For changing between games for the runner we can either always keep modifying the GameRunner to change the game it receives
-    // Alternatively we can create tightly coupled separate runners for each game type we wish to run
-    // Both of these solutions are bad practices
+    // Using the GamingConsole interface makes the GameRunner loosely coupled to the games it has to run
+    // So, GameRunner class is now decoupled from the specific implementation of GamingConsole
 
-    public GameRunner(SuperContraGame game) {
+    public GameRunner(GamingConsole game) {
         this.game = game;
     }
 
